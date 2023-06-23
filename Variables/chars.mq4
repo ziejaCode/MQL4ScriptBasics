@@ -13,28 +13,13 @@
 void OnStart()
   {
 //---
-   //uchar  u_ch; 
-   /*
+   uchar  u_ch; 
+  
    for(char ch=-128;ch<=127;ch++) 
      { 
       u_ch=ch; 
       Comment("ch = ",ch," u_ch = ",u_ch); 
       if(ch==127) break; 
      } 
-   */
-   /*
-   int one = '1';
-   int two = '2';
-   int result = one + two;
-   Print(one," - ",two," - ",result); 
-   
-   
-   char let1 = 12;
-   char let2 = 23;
-   Print(let1," - ",let2);
-   */
-   Comment("This is point ",_Point+"\n"+
-           "This is point * 10  ", 10 * _Point);
-   
   }
 //+------------------------------------------------------------------+
