@@ -1,5 +1,5 @@
 //+------------------------------------------------------------------+
-//|                                                chartinfo_ex1.mq4 |
+//|                                                closeall1_ex3.mq4 |
 //|                                   Copyright 2015, Enrico Lambino |
 //|                                   http://www.cyberforexworks.com |
 //+------------------------------------------------------------------+
@@ -7,15 +7,26 @@
 #property link      "http://www.cyberforexworks.com"
 #property version   "1.00"
 #property strict
+#property show_inputs
+input int magic = 0;
 //+------------------------------------------------------------------+
 //| Script program start function                                    |
 //+------------------------------------------------------------------+
 void OnStart()
   {
 //---
-   double open = Open[1];
-   double close = Close[1];
-   double bar_size = close-open;
-   Alert("The size of the last formed bar is "+bar_size);
+   for (int i=OrdersTotal();i>=0;i--)
+   {
+      if (OrderSelect(i,SELECT_BY_POS))
+      {
+         if (OrderMagicNumber()==magic)
+         {
+            if (OrderType()<=1)
+               OrderClose(OrderTicket(),OrderLots(),OrderClosePrice(),50);
+            else
+               OrderDelete(OrderTicket());
+         }   
+      }
+   }
   }
 //+------------------------------------------------------------------+
