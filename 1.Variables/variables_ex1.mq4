@@ -1,10 +1,10 @@
 //+------------------------------------------------------------------+
-//|                                                    loops_ex4.mq4 |
-//|                                   Copyright 2015, Enrico Lambino |
-//|                                   http://www.cyberforexworks.com |
+//|                                                variables_ex1.mq4 |
+//|                        Copyright 2015, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#property copyright "Copyright 2015, Enrico Lambino"
-#property link      "http://www.cyberforexworks.com"
+#property copyright "Copyright 2015, MetaQuotes Software Corp."
+#property link      "https://www.mql5.com"
 #property version   "1.00"
 #property strict
 //+------------------------------------------------------------------+
@@ -13,11 +13,12 @@
 void OnStart()
   {
 //---
-   do
-   {
-      int ticket = OrderSend(NULL,OP_BUY,0.01,Ask,5,0,0);  
-      if (ticket<=0) Print("failed "+GetLastError());
-   }
-   while (OrdersTotal()<6);
+   int a = 1;
+   int b = 2;
+   Print("a: "+a+" b: "+b);
+   int c = a;
+   a = b;
+   b = c;
+   Print("a: "+a+" b: "+b);
   }
 //+------------------------------------------------------------------+

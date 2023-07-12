@@ -1,3 +1,6 @@
+
+
+
 int send_order(string ins,int cmd,double volume,int distance,int slippage,int sl,int tp,string comment=NULL,int magic=0,int expire=0,color a_clr=clrNONE)
   {
    double price=0;
@@ -7,6 +10,7 @@ int send_order(string ins,int cmd,double volume,int distance,int slippage,int sl
    datetime expiry= 0;
    int order_type = -1;
    RefreshRates();
+   
    if(cmd==OP_BUY)
      {
       if(distance>0) order_type=OP_BUYSTOP;

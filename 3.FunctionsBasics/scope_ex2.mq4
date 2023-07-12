@@ -1,9 +1,9 @@
 //+------------------------------------------------------------------+
-//|                                             CLOSE_ALL_MARKET.mq4 |
-//|                        Copyright 2016, MetaQuotes Software Corp. |
+//|                                                    scope_ex2.mq4 |
+//|                        Copyright 2015, MetaQuotes Software Corp. |
 //|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#property copyright "Copyright 2016, MetaQuotes Software Corp."
+#property copyright "Copyright 2015, MetaQuotes Software Corp."
 #property link      "https://www.mql5.com"
 #property version   "1.00"
 #property strict
@@ -13,15 +13,11 @@
 void OnStart()
   {
 //---
-   int total = OrdersTotal();
-   Comment(" there is no of oreders " + total);
-   for (int i=total-1;i>=0;i--)
+   int a = 10;
    {
-      if (OrderSelect(i,SELECT_BY_POS))
-      {
-         if (OrderType()<=1)
-            OrderClose(OrderTicket(),OrderLots(),OrderClosePrice(),5);
-      }
+      int b = 10;
+      b = b + a;
+      Print("b: "+b);
    }
   }
 //+------------------------------------------------------------------+

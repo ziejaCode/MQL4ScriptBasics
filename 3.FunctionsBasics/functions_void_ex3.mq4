@@ -1,5 +1,5 @@
 //+------------------------------------------------------------------+
-//|                                                    loops_ex1.mq4 |
+//|                                           functions_void_ex3.mq4 |
 //|                                   Copyright 2015, Enrico Lambino |
 //|                                   http://www.cyberforexworks.com |
 //+------------------------------------------------------------------+
@@ -13,10 +13,7 @@
 void OnStart()
   {
 //---
-   for (int i=0;i<6;i++)
-   {
-    int ticket = OrderSend(NULL,OP_BUY,0.01,Ask,5,0,0);  
-    //if (ticket<=0) Print("failed "+GetLastError());
-   }   
+   Sleep(10000);
+   TerminalClose(0);
   }
 //+------------------------------------------------------------------+
