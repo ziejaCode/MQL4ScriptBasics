@@ -27,6 +27,9 @@ void exit_all(int type=-1,int magic=-1)
       }
    }
 }
+
+
+
 bool exit(int ticket,color a_color=clrNONE,int slippage=50,int retries=3,int sleep=500)
   {
    bool result=false;
@@ -44,6 +47,8 @@ bool exit(int ticket,color a_color=clrNONE,int slippage=50,int retries=3,int sle
      }
    return result;
   }
+  
+  
 int exit_order(int ticket,color a_color=clrNONE,int slippage=50)
 {
    int result = 0;
