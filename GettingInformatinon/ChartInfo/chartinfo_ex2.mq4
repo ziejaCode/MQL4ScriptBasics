@@ -18,5 +18,14 @@ void OnStart()
    double low = Low[1];
    double price_weighted = (high+low+close+close)/4;
    Alert("weighted price of the last bar: "+price_weighted);
+   
+   
+   if(IsStopped()) Print("Expert was stopped");
+      else if(!IsConnected()) Print("No internet connection");
+      else if(!IsExpertEnabled()) Print("Experts not enabled in trading platform");
+      else if(IsTradeContextBusy()) Print("Trade context is busy");
+      else if(!IsTradeAllowed()) Print("Trade is not allowed in trading platform");
+   
+   
   }
 //+------------------------------------------------------------------+

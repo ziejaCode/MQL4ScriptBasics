@@ -1,17 +1,20 @@
 
 
+void OnStart(){
 
-int send_order(string ins,int cmd,double volume,int distance,int slippage,int sl,int tp,string comment=NULL,int magic=0,int expire=0,color a_clr=clrNONE)
+int send_order(string ins,
+int cmd,double volume,int distance,int slippage,int sl,int tp,string 
+               comment=NULL,int magic=0,int expire=0,color a_clr=clrNONE)
   {
-   double price=0;
+   double price    = 0;
    double price_sl = 0;
    double price_tp = 0;
-   double point=MarketInfo(ins,MODE_POINT);
-   datetime expiry= 0;
-   int order_type = -1;
+   double point    = MarketInfo(ins,MODE_POINT);
+   datetime expiry = 0;
+   int order_type  = -1;
    RefreshRates();
    
-   if(cmd==OP_BUY)
+   if(cmd == OP_BUY)
      {
       if(distance>0) order_type=OP_BUYSTOP;
       else if(distance<0) order_type=OP_BUYLIMIT;
@@ -38,10 +41,11 @@ int send_order(string ins,int cmd,double volume,int distance,int slippage,int sl
    return OrderSend(ins,order_type,volume,price,slippage,price_sl,price_tp,comment,magic,expiry,a_clr);
   }
   
-int entry(string ins,int cmd,double volume,int distance,int slippage,int sl,int tp,string comment=NULL,int magic=0,int expire=0,int a_clr=clrNONE,bool market=false,int retries=3,int sleep=500)
+int entry(string ins,int cmd,double volume,int distance,int slippage,int sl,int tp,string comment=NULL,
+          int magic=0,int expire=0,int a_clr=clrNONE,bool market=false,int retries=3,int sleep=500)
   {
-   int ticket=0;
-   for(int i=0;i<retries;i++)
+   int ticket = 0;
+   for(int i = 0; i < retries; i++)
      {
       if(IsStopped()) Print("Expert was stopped");
       else if(!IsConnected()) Print("No internet connection");
@@ -56,3 +60,4 @@ int entry(string ins,int cmd,double volume,int distance,int slippage,int sl,int 
      }
    return ticket;
   }
+ }

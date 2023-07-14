@@ -1,4 +1,9 @@
-int send_order(string ins,int cmd,double volume,int distance,int slippage,int sl,int tp,string comment=NULL,int magic=0,int expire=0,int a_clr=clrNONE,bool market=false)
+
+
+
+
+int send_order(string ins,int cmd,double volume,int distance,int slippage,int sl,
+               int tp,string comment=NULL,int magic=0,int expire=0,int a_clr=clrNONE,bool market=false)
   {
    double price=0;
    double price_sl = 0;
@@ -69,6 +74,7 @@ int entry(string ins,int cmd,double volume,int distance,int slippage,int sl,int 
    int ticket=0;
    for(int i=0;i<retries;i++)
      {
+      // Before place trade check the state of he 
       if(IsStopped()) Print("Expert was stopped");
       else if(!IsConnected()) Print("No internet connection");
       else if(!IsExpertEnabled()) Print("Experts not enabled in trading platform");

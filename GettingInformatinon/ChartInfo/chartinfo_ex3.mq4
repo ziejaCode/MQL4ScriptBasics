@@ -16,6 +16,7 @@ void OnStart()
    double close_eurusd = iClose("EURUSD",PERIOD_D1,1);
    double close_eurjpy = iClose("EURJPY",PERIOD_D1,1);
    double close_usdjpy = iClose("USDJPY",PERIOD_D1,1);
+  
    Alert("Last day close price (EURUSD): "+close_eurusd);
    Alert("Last day close price (EURJPY): "+close_eurjpy);
    Alert("Last day close price (USDJPY): "+close_usdjpy);

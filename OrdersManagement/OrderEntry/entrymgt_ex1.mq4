@@ -72,6 +72,7 @@ int entry(string ins,int cmd,double volume,int distance,int slippage,int sl,int 
       else if(!IsExpertEnabled()) Print("Experts not enabled in trading platform");
       else if(IsTradeContextBusy()) Print("Trade context is busy");
       else if(!IsTradeAllowed()) Print("Trade is not allowed in trading platform");
+      
       else ticket=send_order(ins,cmd,volume,distance,slippage,sl,tp,comment,magic,expire,a_clr);
       if(ticket>0)
          break;
