@@ -18,7 +18,10 @@ void OnStart()
    double low = Low[1];
    double price_weighted = (high+low+close+close)/4;
    Alert("weighted price of the last bar: "+price_weighted);
+   Alert("this is point " + Point());
+   ///Alert("this is price " + Price());
    
+   Alert("this is MarketInfo " + MarketInfo("EURUSD",MODE_SPREAD));
    
    if(IsStopped()) Print("Expert was stopped");
       else if(!IsConnected()) Print("No internet connection");

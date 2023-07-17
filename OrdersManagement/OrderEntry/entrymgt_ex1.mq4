@@ -76,6 +76,7 @@ int entry(string ins,int cmd,double volume,int distance,int slippage,int sl,int 
       else ticket=send_order(ins,cmd,volume,distance,slippage,sl,tp,comment,magic,expire,a_clr);
       if(ticket>0)
          break;
+      
       else Print("Error in sending order ("+IntegerToString(GetLastError(),0)+"), retry: "+IntegerToString(i,0)+"/"+IntegerToString(retries));
       Sleep(sleep);
      }
