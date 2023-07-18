@@ -1,28 +1,17 @@
-//+------------------------------------------------------------------+
-//|                                                     EXIT_ALL.mq4 |
-//|                        Copyright 2016, MetaQuotes Software Corp. |
-//|                                             https://www.mql5.com |
-//+------------------------------------------------------------------+
-#property copyright "Copyright 2016, MetaQuotes Software Corp."
-#property link      "https://www.mql5.com"
-#property version   "1.00"
-#property strict
-//+------------------------------------------------------------------+
-//| Script program start function                                    |
-//+------------------------------------------------------------------+
+
 void OnStart()
   {
 //---
    exit_all();
   }
 //+------------------------------------------------------------------+
-void exit_all(int type=-1,int magic=-1)
+void exit_all(int type = -1, int magic = -1)
 {
-   for (int i=OrdersTotal();i>=0;i--)
+   for (int i = OrdersTotal(); i>=0 ; i--)
    {
       if (OrderSelect(i,SELECT_BY_POS))
       {
-         if((type==-1 || type==OrderType()) && (magic==-1 || magic==OrderMagicNumber()))
+         if((type == -1 || type == OrderType()) && (magic==-1 || magic==OrderMagicNumber()))
             exit(OrderTicket());
       }
    }
