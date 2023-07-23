@@ -15,20 +15,21 @@ enum ENUM_ORDER_SET
    ORDER_SET_PENDING
   };
 
-void exit_all_set(ENUM_ORDER_SET type=-1,int magic=-1)
+void exit_all_set(ENUM_ORDER_SET type = -1,int magic = -1)
   {
-   for(int i=OrdersTotal();i>=0;i--)
+   for(int i = OrdersTotal(); i >= 0; i--)
      {
       if(OrderSelect(i,SELECT_BY_POS))
         {
-         if(magic==-1 || magic==OrderMagicNumber())
+         if(magic == -1 || magic == OrderMagicNumber())
            {
-            int ordertype=OrderType();
-            int ticket=OrderTicket();
+            int ordertype = OrderType();
+            int ticket = OrderTicket();
+            
             switch(type)
               {
                case ORDER_SET_BUY:
-                  if(ordertype==OP_BUY) exit(ticket);
+                  if(ordertype == OP_BUY) exit(ticket);
                   break;
                case ORDER_SET_SELL:
                   if(ordertype==OP_SELL) exit(ticket);
